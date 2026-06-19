@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼体育 · 稳定运动信息入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #faf7f2;
+      font-family: 'Georgia', 'Times New Roman', 'Songti SC', serif;
+      color: #2b2b2b;
+      line-height: 1.8;
+      padding: 2rem 1rem;
+    }
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: rgba(255, 250, 240, 0.7);
+      padding: 2.5rem 2.2rem;
+      border-radius: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+    .hero-card {
+      margin-bottom: 2.8rem;
+      text-align: center;
+    }
+    .hero-card h1 {
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #3e3a32;
+      margin-bottom: 0.65rem;
+    }
+    .hero-card .subhead {
+      font-size: 1rem;
+      color: #7a715e;
+      border-top: 1px solid #d9ceba;
+      border-bottom: 1px solid #d9ceba;
+      display: inline-block;
+      padding: 0.3rem 2rem;
+      background: #f3ede3;
+      border-radius: 40px;
+    }
+    .intro-note {
+      background: #f3ede3;
+      border-left: 5px solid #b8a58a;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border-radius: 0 20px 20px 0;
+      font-style: normal;
+      color: #3d382e;
+    }
+    .intro-note strong {
+      font-weight: 600;
+      color: #5c4f36;
+    }
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+    .card-item {
+      flex: 1 1 220px;
+      background: #fffcf6;
+      padding: 1.8rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      border: 1px solid #ece3d6;
+      transition: transform 0.15s;
+    }
+    .card-item:hover {
+      transform: translateY(-3px);
+      border-color: #cbbba6;
+    }
+    .card-item h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #5a4e3a;
+      margin-bottom: 0.6rem;
+      border-left: 4px solid #b8a58a;
+      padding-left: 0.75rem;
+    }
+    .card-item p {
+      font-size: 0.95rem;
+      color: #4c4539;
+    }
+    .audience-block {
+      margin: 2.8rem 0 2rem;
+    }
+    .audience-block h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #4a4133;
+      border-bottom: 1px dashed #d0c2af;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem 1.2rem;
+    }
+    .audience-tags span {
+      background: #e8dfd1;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #3d3529;
+      letter-spacing: 0.3px;
+    }
+    .natural-link-paragraph {
+      margin: 2.8rem 0 1.2rem;
+      padding: 1.2rem 1.8rem;
+      background: #f6f0e6;
+      border-radius: 30px;
+      border: 1px solid #d6cbbc;
+    }
+    .natural-link-paragraph p {
+      font-size: 1.05rem;
+    }
+    .natural-link-paragraph a {
+      color: #7d5f3e;
+      text-decoration: none;
+      border-bottom: 1px solid #b8a58a;
+      font-weight: 600;
+      padding: 0 2px;
+    }
+    .natural-link-paragraph a:hover {
+      background: #dacfbb;
+      color: #2f281e;
+    }
+    .faq-mini {
+      margin: 2rem 0 1rem;
+      background: #ede5d8;
+      padding: 1.6rem 2rem;
+      border-radius: 24px;
+    }
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #d6cbb9;
+      padding-bottom: 0.6rem;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      color: #4a3f30;
+      cursor: pointer;
+      padding: 0.1rem 0;
+    }
+    .faq-mini summary::-webkit-details-marker {
+      color: #9f8d73;
+    }
+    .faq-mini p {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: #4e4639;
+      padding-left: 0.8rem;
+    }
+    .footnote {
+      margin-top: 2.8rem;
+      font-size: 0.85rem;
+      color: #8b806d;
+      text-align: center;
+      border-top: 1px solid #daceba;
+      padding-top: 1.8rem;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 600px) {
+      .page { padding: 1.8rem 1.2rem; }
+      .hero-card h1 { font-size: 1.8rem; }
+      .card-item { flex: 1 1 100%; }
+      .intro-note { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 主视觉 -->
+  <div class="hero-card">
+    <h1>乐鱼体育</h1>
+    <div class="subhead">运动信息 · 稳定入口</div>
+  </div>
+
+  <!-- 说明段落 + 引用感 -->
+  <div class="intro-note">
+    <p>一个可靠的线上入口，意味着当你需要浏览体育资讯、比赛动态或相关服务时，不必在大量链接中反复辨认。基于这一点，<strong>乐鱼体育</strong> 提供了一个结构清晰的聚合页面，将常见的信息区域以卡片形式组织起来——不需要跳转多个窗口，也能快速找到感兴趣的部分。</p>
+  </div>
+
+  <!-- 用途卡片：信息卡片式 -->
+  <div class="info-grid">
+    <div class="card-item">
+      <h3>赛况摘要</h3>
+      <p>汇集近期主流赛事的比分、关键节点与简短分析，适合赛前赛后快速浏览。没有冗余推送，只呈现基础数据与事实。</p>
+    </div>
+    <div class="card-item">
+      <h3>运动专题</h3>
+      <p>围绕热门运动（足球、篮球、网球等）整理专题内容，包括队伍近况、历史交手记录及实用观赛指引。</p>
+    </div>
+    <div class="card-item">
+      <h3>稳定入口</h3>
+      <p>页面结构保持克制，减少不必要的外部跳转与弹窗。你可以将它视为一个安静的起点，而不是信息轰炸的源头。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群 -->
+  <div class="audience-block">
+    <h2>适合哪些人</h2>
+    <div class="audience-tags">
+      <span>日常关注赛果的球迷</span>
+      <span>偏好简洁界面的运动爱好者</span>
+      <span>需要快速查找体育信息的人</span>
+      <span>不愿被广告频繁打扰的用户</span>
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.98rem; color: #4f483c;">这里没有复杂的注册流程，也没有强制推送。打开页面，信息就在那里。</p>
+  </div>
+
+  <!-- 自然链接段落（核心a标签） -->
+  <div class="natural-link-paragraph">
+    <p>如果你正在寻找一个稳定的体育信息入口，可以试着把 <a href="https://m-online-leyu.com.cn">乐鱼体育</a> 加入书签。它的界面经过简化，加载速度相对较快，在移动设备上也能保持基本的可读性。花几分钟熟悉布局之后，后续使用时基本不需要再花时间适应。</p>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="faq-mini">
+    <details>
+      <summary>这个页面跟普通的体育门户有什么不同？</summary>
+      <p>更接近一个轻量的索引页，没有弹窗推荐、自动播放视频或复杂的会员体系。核心目的是让信息本身更醒目。</p>
+    </details>
+    <details>
+      <summary>是否需要注册才能查看内容？</summary>
+      <p>不需要。页面上的赛事摘要与专题内容均直接展示，无需登录。部分外链（如有）会跳转到外部源，但入口本身保持开放。</p>
+    </details>
+    <details>
+      <summary>移动端体验如何？</summary>
+      <p>采用响应式布局，在手机浏览器上内容会重新排列为单列，字体与间距也做了适配。建议保持系统字体大小为默认值。</p>
+    </details>
+  </div>
+
+  <!-- 结尾 -->
+  <div class="footnote">
+    一个安静的体育信息起点 &nbsp;·&nbsp; 不煽动，不打扰
+  </div>
+
+</div>
+</body>
+</html>
