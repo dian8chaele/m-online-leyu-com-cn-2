@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威廉希尔 · 赛事指引说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fae3cb 0%, #f8d1b0 35%, #f3c39a 70%, #efb888 100%);
+            background-attachment: fixed;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .card {
+            max-width: 860px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 36px 36px 28px 28px;
+            box-shadow: 0 16px 48px rgba(140, 80, 30, 0.20), 0 6px 16px rgba(100, 50, 15, 0.08);
+            padding: 2.8rem 2.8rem 2.4rem;
+            transition: box-shadow 0.2s ease;
+            border: 1px solid rgba(255, 245, 235, 0.6);
+        }
+
+        @media (max-width: 560px) {
+            body { padding: 1.2rem 1rem; }
+            .card { padding: 2rem 1.5rem 1.8rem; border-radius: 28px; }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #d6894b20;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            color: #7f4e2a;
+            margin-bottom: 1.6rem;
+            border: 1px solid #d6894b30;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            color: #3e2b1b;
+            margin-bottom: 0.25rem;
+        }
+
+        .accent-line {
+            width: 56px;
+            height: 4px;
+            background: linear-gradient(90deg, #c57f46, #e5a16b);
+            border-radius: 6px;
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        .opener {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            background: #fff3ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            color: #3f2c1b;
+            border-left: 6px solid #d68c4b;
+            margin-bottom: 2rem;
+            font-weight: 450;
+        }
+
+        .intro-text {
+            font-size: 1.04rem;
+            line-height: 1.7;
+            color: #3a2b1e;
+            margin-bottom: 2.2rem;
+        }
+
+        .intro-text a {
+            color: #aa6736;
+            background: transparent;
+            text-decoration: none;
+            font-weight: 550;
+            border-bottom: 1px solid #d6904e;
+            padding-bottom: 1px;
+            transition: all 0.1s ease;
+        }
+
+        .intro-text a:hover {
+            background: #ecc7ab40;
+            border-bottom-color: #b06a34;
+            color: #874f27;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.6rem;
+            margin: 2rem 0 2.2rem;
+        }
+
+        .feature-item {
+            background: #fcf4ec;
+            padding: 1.1rem 1.2rem;
+            border-radius: 18px;
+            border: 1px solid #ecdacb;
+            box-shadow: 0 2px 6px rgba(150, 90, 40, 0.04);
+            transition: background 0.15s;
+        }
+
+        .feature-item strong {
+            color: #784e2b;
+            font-weight: 550;
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-item span {
+            font-size: 0.96rem;
+            color: #4d3826;
+            line-height: 1.45;
+        }
+
+        @media (max-width: 520px) {
+            .feature-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+        }
+
+        .scene-note {
+            background: #efe0d1;
+            padding: 1rem 1.5rem;
+            border-radius: 24px;
+            color: #3b2a1b;
+            margin: 2rem 0 1.6rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border: 1px solid #dbb79b;
+        }
+
+        .scene-note i {
+            font-style: normal;
+            background: #dfb69260;
+            padding: 0.1rem 0.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .faq-short {
+            background: #fffcf7;
+            border-radius: 20px;
+            padding: 1rem 1.4rem;
+            margin: 1.8rem 0 1.2rem;
+            border: 1px solid #e3cbbc;
+        }
+
+        .faq-short p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: #4c3826;
+        }
+
+        .faq-short p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-short strong {
+            color: #6b4226;
+        }
+
+        .closing {
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 2px solid #edd6c2;
+            font-size: 1rem;
+            color: #3e2d1c;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .closing small {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #7a5c41;
+        }
+
+        .soft-button {
+            display: inline-block;
+            background: #dda16e;
+            color: #2f1f11;
+            padding: 0.55rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid #d38a4b;
+            box-shadow: 0 4px 8px rgba(160, 85, 30, 0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+            margin-top: 0.6rem;
+            display: inline-block;
+            background: #cf8c55;
+            color: #2d1e10;
+        }
+
+        .soft-button:hover {
+            background: #da9d68;
+            box-shadow: 0 6px 12px rgba(150, 70, 20, 0.15);
+            transform: translateY(-1px);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #dbb79b, transparent);
+            margin: 2rem 0 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="hero-tag">🏟️ 赛事 · 指引 · 概览</div>
+        <h1>这里是为了让你快速确认<br>一个体育站点的用途</h1>
+        <div class="accent-line"></div>
+
+        <div class="opener">
+            “刚打开一个链接，看到名字里有‘威廉希尔’，但不确定是不是自己要找的那个。”
+        </div>
+
+        <div class="intro-text">
+            很多人遇到体育类站点时，第一反应是想判断它是否针对自己关心的联赛、杯赛或热门运动。如果你是在寻找一个整合了足球、篮球、网球以及其他主流赛事信息的参考页面，那么 
+            <a href="https://sporthub-williamhill.com">威廉希尔</a> 所指向的页面，可能会是一个值得快速浏览的起点。
+            它不以花哨的广告开头，而是集中呈现了赛事分类、近期对阵以及一些基础统计数据——对于想先看内容再决定是否深入的用户来说，这种结构比较友好。
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>⚽ 赛事分类清晰</strong>
+                <span>按联赛、杯赛、地区分组，不必反复翻找。英超、西甲、欧冠、NBA 等常见板块都有独立入口。</span>
+            </div>
+            <div class="feature-item">
+                <strong>📋 对阵与状态</strong>
+                <span>每场比赛附带最近几场走势、关键数据，适合喜欢快速扫一眼形势的用户。</span>
+            </div>
+            <div class="feature-item">
+                <strong>🔍 搜索与筛选</strong>
+                <span>顶部支持按日期、队伍或赛事名称筛选，减少漫无目的的滚动。</span>
+            </div>
+            <div class="feature-item">
+                <strong>📱 响应式布局</strong>
+                <span>手机与电脑上排版都会自动适配，不用频繁缩放或横滑。</span>
+            </div>
+        </div>
+
+        <div class="scene-note">
+            <i>💡 常见使用场景</i> —— 周中想确认一下周末有哪些焦点战，或者查一查某支球队下一场对手是谁。页面更新频率稳定，基本能覆盖主流需求。
+        </div>
+
+        <div class="faq-short">
+            <p><strong>❓ 常见问题摘要</strong></p>
+            <p>· 是否需要注册才能浏览？ —— 大部分赛事列表可直接查看，无需登录。</p>
+            <p>· 数据来源是否标注？ —— 页面内会显示数据提供方标志，可作为参考。</p>
+            <p>· 如果找不到特定小联赛怎么办？ —— 可以尝试顶部搜索框，或留意“更多赛事”折叠区。</p>
+        </div>
+
+        <div class="closing">
+            整理这些信息，是希望帮你节省“点进去才发现不对路”的时间。如果你对赛事分类或数据呈现有自己的偏好，不妨把 
+            <a href="https://sporthub-williamhill.com" style="color: #8a532b; background: transparent; text-decoration: none; font-weight: 500; border-bottom: 1px solid #c68044;">威廉希尔</a> 
+            当作一个备选参考页，随时回来快速扫一眼。
+            <small>—— 页面说明随站点更新而调整，建议以实际内容为准。</small>
+        </div>
+
+        <hr>
+        <div style="text-align: right; margin-top: 0.2rem;">
+            <span style="font-size: 0.8rem; color: #76573c;">sporthub-williamhill.com · 信息卡片</span>
+        </div>
+    </div>
+</body>
+</html>
