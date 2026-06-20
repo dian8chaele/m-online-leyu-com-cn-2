@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓝鲸体育 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f1f1f1;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2b3c;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            background: #fafafa;
+            padding: 2.8rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e3e8ed;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #0a2333;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4b5e70;
+            max-width: 600px;
+            margin: 0.6rem auto 0;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #eef2f6;
+            color: #1b3a4b;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-top: 0.8rem;
+            border: 1px solid #dce2e9;
+        }
+
+        /* 卡片网格 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.4rem;
+            border: 1px solid #e5e9ef;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1f3a4a;
+            margin-bottom: 0.6rem;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 0.2rem;
+            display: inline-block;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2f4256;
+            margin: 0.6rem 0 0;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #e9f0f6;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            color: #1c4057;
+            margin-top: 0.4rem;
+            border: 1px solid #dbe3ec;
+        }
+
+        /* 说明 / 提示 双栏 */
+        .row-2 {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e5e9ef;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-block h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1c3648;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-block p {
+            font-size: 0.95rem;
+            color: #33485b;
+            margin-bottom: 0.7rem;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.6rem 0 0;
+        }
+
+        .info-block ul li {
+            font-size: 0.95rem;
+            padding: 0.25rem 0 0.25rem 1.2rem;
+            position: relative;
+            color: #1d3f53;
+        }
+
+        .info-block ul li::before {
+            content: "●";
+            color: #627d94;
+            font-size: 0.5rem;
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+
+        .tip-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e5e9ef;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .tip-block h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1c3648;
+            margin-bottom: 0.8rem;
+        }
+
+        .tip-block .tip-item {
+            background: #f7f9fc;
+            border-radius: 14px;
+            padding: 0.9rem 1rem;
+            margin-bottom: 0.7rem;
+            border: 1px solid #eef2f7;
+        }
+
+        .tip-block .tip-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1b3b4f;
+        }
+
+        .tip-block .tip-item span {
+            font-size: 0.88rem;
+            color: #385469;
+        }
+
+        /* 相关信息区 + 链接嵌入 */
+        .related-area {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem;
+            border: 1px solid #e5e9ef;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+        }
+
+        .related-area h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1c3648;
+            margin-bottom: 0.6rem;
+        }
+
+        .related-area p {
+            font-size: 0.95rem;
+            color: #2b4053;
+            margin-bottom: 0.8rem;
+        }
+
+        .related-area .link-sentence {
+            background: #f6f9fd;
+            padding: 1rem 1.2rem;
+            border-radius: 16px;
+            border-left: 3px solid #a2b8cb;
+            font-size: 0.95rem;
+            color: #293f53;
+        }
+
+        .related-area .link-sentence a {
+            color: #0a4b6e;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px dashed #b3cbd9;
+        }
+
+        .related-area .link-sentence a:hover {
+            border-bottom: 1px solid #0a4b6e;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e5e9ef;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #1c3648;
+        }
+
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #edf1f5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1f3f54;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #3a5770;
+            margin-top: 0.2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dde3ea;
+            margin: 1.5rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #6b7f90;
+            font-size: 0.85rem;
+            padding: 1rem 0 0.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 760px) {
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+            .row-2 {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            body {
+                padding: 1rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区域 -->
+    <div class="hero">
+        <h1>蓝鲸体育 · 知识库</h1>
+        <div class="sub">从日常查询、对照到延伸阅读，整理运动与体能相关的基础信息。</div>
+        <div class="badge">📚 信息入口 · 轻量索引</div>
+    </div>
+
+    <!-- 目录感卡片 -->
+    <div class="grid-3">
+        <div class="card">
+            <h3>规则对照</h3>
+            <p>常见赛事规程、判罚要点、术语说明。便于在阅读报道或复盘时快速比对。</p>
+            <span class="tag">⚖️ 标准参考</span>
+        </div>
+        <div class="card">
+            <h3>训练笔记</h3>
+            <p>基础动作要领、恢复常识、周期安排。不取代专业指导，适合日常翻阅。</p>
+            <span class="tag">📝 入门参考</span>
+        </div>
+        <div class="card">
+            <h3>设备与场地</h3>
+            <p>装备选择、场地规格、维护提示。汇总常见疑问与经验分享。</p>
+            <span class="tag">🔧 实用信息</span>
+        </div>
+    </div>
+
+    <!-- 说明区 + 提示区 -->
+    <div class="row-2">
+        <div class="info-block">
+            <h2>说明</h2>
+            <p>本知识库围绕运动场景中反复出现的查询需求整理。内容来源包括公开资料、通用教学经验与爱好者交流记录。</p>
+            <p>使用建议：</p>
+            <ul>
+                <li>通过目录快速定位你关注的板块</li>
+                <li>每条信息均保留交叉核对的余地</li>
+                <li>遇到模糊术语时可先查阅规则对照</li>
+            </ul>
+        </div>
+        <div class="tip-block">
+            <h2>提示</h2>
+            <div class="tip-item">
+                <strong>📌 版本差异</strong>
+                <span>部分规则存在年度修订，请以最新官方发布为准。</span>
+            </div>
+            <div class="tip-item">
+                <strong>📌 个体差异</strong>
+                <span>训练建议需结合自身状况调整，切勿照搬。</span>
+            </div>
+            <div class="tip-item">
+                <strong>📌 持续更新</strong>
+                <span>知识库会随信息积累逐步补充，欢迎常回来看看。</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 相关信息区 + 链接自然嵌入 -->
+    <div class="related-area">
+        <h2>相关信息</h2>
+        <p>如果你希望进一步了解运动资料、赛事动态或基础体能知识，可以关注 <a href="https://zh-c-lanjingsports.com">蓝鲸体育</a> 的长期内容沉淀。这里整理的信息偏向简明对照，更多深度专题与讨论可在主站内翻阅。</p>
+        <div class="link-sentence">
+            💡 延伸阅读建议：在 <a href="https://zh-c-lanjingsports.com">蓝鲸体育</a> 中检索具体项目名称，通常能找到对应的规则概要、训练思路与常见问题归纳。
+        </div>
+        <p style="margin-top: 1rem;">此外，部分板块配有图解与表格，方便在移动设备上快速浏览。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见问题摘要</h2>
+        <div class="faq-item">
+            <div class="q">❓ 如何快速查找某项运动的场地尺寸？</div>
+            <div class="a">从“设备与场地”卡片进入，按运动项目分类检索。若未收录，可尝试主站搜索栏。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">❓ 知识库内容多久更新一次？</div>
+            <div class="a">没有固定周期，但会配合赛事规则变动以及常见提问进行补充。建议开启主站通知。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">❓ 能否直接复制内容用于教学？</div>
+            <div class="a">可以，但请注明来源为<a href="https://zh-c-lanjingsports.com">蓝鲸体育</a>。同时注意核对时效性。</div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        知识库入口 · 日常查询与延伸阅读
+    </div>
+</div>
+</body>
+</html>
